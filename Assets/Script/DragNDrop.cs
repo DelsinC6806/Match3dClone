@@ -7,6 +7,8 @@ public class DragNDrop : MonoBehaviour
     GameObject target;
     bool isMouseDragging;
     bool isDragUp = false;
+    Vector2 screenMin = new Vector2(28, 5);
+    Vector2 screenMax = new Vector2(72, 25);
     Vector3 screenPosition;
     Vector3 offset;
 
@@ -35,6 +37,9 @@ public class DragNDrop : MonoBehaviour
         {
             Vector3 currentScreenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPosition.z);
             Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenSpace) + offset;
+            currentPosition.x = Mathf.Clamp(currentPosition.x,screenMin.x,screenMax.x);
+            currentPosition.y = Mathf.Clamp(currentPosition.y, 10, 10);
+            currentPosition.z = Mathf.Clamp(currentPosition.z,screenMin.y,screenMax.y);
             target.transform.position = currentPosition;
         }
     }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ItemSpawningScript : MonoBehaviour
 {
@@ -19,12 +17,12 @@ public class ItemSpawningScript : MonoBehaviour
         {
             int index = Random.Range(0,items.Length-1);
             Instantiate(items[index], spawnPoint.position,Quaternion.identity);
-            Instantiate(items[index], spawnPoint.position,Quaternion.identity);
             Vector3 newSpawnPoint = spawnPoint.position;
-            newSpawnPoint.y += 2;
+            newSpawnPoint.x = Random.Range(28, 72);
+            newSpawnPoint.z = Random.Range(5, 25);
             spawnPoint.position = newSpawnPoint;
+            Instantiate(items[index], spawnPoint.position,Quaternion.identity);
             count += 2;
-            Debug.Log(count);
         }
     }
 }
