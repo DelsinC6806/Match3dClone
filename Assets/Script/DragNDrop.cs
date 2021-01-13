@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DragNDrop : MonoBehaviour
 {
-    GameObject target;
-    bool isMouseDragging;
+    public static GameObject target;
+    public static bool isMouseDragging;
     bool isDragUp = false;
     Vector2 screenMin = new Vector2(28, 5);
     Vector2 screenMax = new Vector2(72, 25);
@@ -14,18 +14,22 @@ public class DragNDrop : MonoBehaviour
 
     void Update()
     {
-            if (Input.GetMouseButtonDown(0))
+        if(target != null)
+        {
+            Debug.Log(target.name);
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hitInfo;
+            
+            if (ReturnClickedObject(out hitInfo).tag == "draggable")
             {
-                RaycastHit hitInfo;
                 target = ReturnClickedObject(out hitInfo);
-                if (target.transform.tag == "draggable")
-                {
-                    isMouseDragging = true;
-
+                isMouseDragging = true;
                 screenPosition = Camera.main.WorldToScreenPoint(target.transform.position);
                 offset = target.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPosition.z));
-                }
             }
+        }
 
         if (Input.GetMouseButtonUp(0))
         {

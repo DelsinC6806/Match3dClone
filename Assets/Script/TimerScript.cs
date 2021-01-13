@@ -24,7 +24,7 @@ public class TimerScript : MonoBehaviour
         if(second <= 0 && minute > 0)
         {
             minute -= 1;
-            second = 60;
+            second = 59;
         }else if (second <= 0 && minute <= 0)
         {
             //GameOver
