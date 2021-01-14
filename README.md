@@ -4,4 +4,6 @@
 <br>11/1/2021 Applied material to game item, Drag & Drop completed , item Spawning completed.</br>
 <br>12/1/2021 Delete collider boundaries,clamp all position with mathf.clamp within the screen,rebuild spawn script</br>
 <br>13/1/2021 Added Basic logic of matching/item positioning.</br>
+<br>14/1/2021 Complete combo bar UI and script, refine canvas</br>
+
 
