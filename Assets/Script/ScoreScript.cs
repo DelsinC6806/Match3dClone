@@ -28,7 +28,7 @@ public class ScoreScript : MonoBehaviour
 
     public void addScore()
     {
-        score += 1;
+        score += (1 * MatchingScript.comboNum);
     }
 
     void displayCurrentScore()

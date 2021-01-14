@@ -6,7 +6,6 @@ public class DragNDrop : MonoBehaviour
 {
     public static GameObject target;
     public static bool isMouseDragging;
-    bool isDragUp = false;
     Vector2 screenMin = new Vector2(28, 5);
     Vector2 screenMax = new Vector2(72, 25);
     Vector3 screenPosition;
@@ -14,10 +13,6 @@ public class DragNDrop : MonoBehaviour
 
     void Update()
     {
-        if(target != null)
-        {
-            Debug.Log(target.name);
-        }
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hitInfo;
@@ -34,7 +29,6 @@ public class DragNDrop : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
         isMouseDragging = false;
-        isDragUp = false;
         }
 
         if (isMouseDragging)

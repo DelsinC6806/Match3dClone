@@ -28,6 +28,6 @@ public class LevelScript : MonoBehaviour
 
     void DisplayCurrentLevel()
     {
-        levelText.text = "Level " + level;
+        levelText.text = "LEVEL " + level;
     }
 }
