@@ -4,12 +4,12 @@ using UnityEngine;
 public class LevelScript : MonoBehaviour
 {
     public Text levelText;
-    int level;
+    public static int level;
     bool levelup = false;
 
     void Start()
     {
-        level = 1;
+        level = 0;
     }
 
     void Update()

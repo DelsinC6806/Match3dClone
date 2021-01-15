@@ -23,7 +23,7 @@ public class MatchingScript : MonoBehaviour
     void Combo()
     {
         comboText.text = "x" + comboNum;
-        if (comboBarSlider.value >= 0)
+        if (comboBarSlider.value > 0)
         {
             comboBarSlider.value -= Time.deltaTime;
         }
@@ -39,7 +39,8 @@ public class MatchingScript : MonoBehaviour
     {
         if (DragNDrop.target != null)
         {
-            if (Vector3.Distance(DragNDrop.target.transform.position, this.transform.position) <= 4)
+            Debug.Log(Vector2.Distance(DragNDrop.target.transform.position, this.transform.position));
+            if (Vector2.Distance(DragNDrop.target.transform.position, this.transform.position) <= 7)
             {
                 if (first == null)
                 {
