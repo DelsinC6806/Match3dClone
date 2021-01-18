@@ -10,6 +10,8 @@ public class DragNDrop : MonoBehaviour
     Vector2 screenMax = new Vector2(72, 25);
     Vector3 screenPosition;
     Vector3 offset;
+    float height = 8f;
+    float speed = 100f;
 
     void Update()
     {
@@ -35,7 +37,8 @@ public class DragNDrop : MonoBehaviour
         {
             Vector3 currentScreenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPosition.z);
             Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenSpace) + offset;
-            target.transform.position = currentPosition;
+            currentPosition.y = height;
+            target.transform.position = Vector3.MoveTowards(target.transform.position,currentPosition,speed*Time.deltaTime);
         }
     }
 

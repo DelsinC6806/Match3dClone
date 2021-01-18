@@ -7,15 +7,16 @@ public class MatchingScript : MonoBehaviour
     GameObject second;
     public Transform point1;
     public Transform point2;
-    public Transform matchingPoint;
-    Vector3 offset = new Vector3(0, 1f, 0);
+    Vector3 offset = new Vector3(0, 1.5f, 0);
     bool StartCombo;
     public Slider comboBarSlider;
     public Text comboText;
     float comboTime = 5;
     public static int comboNum = 0;
-    float speed = 5f;
-    float rotSpeed = 3f;
+    float speed = 10f;
+    float rotSpeed = 10f;
+    bool correct;
+
 
     void Update()
     {
@@ -42,53 +43,65 @@ public class MatchingScript : MonoBehaviour
     {
         if (DragNDrop.target != null)
         {
-            if (Vector3.Distance(DragNDrop.target.transform.position, this.transform.position) <= 5 && !DragNDrop.isMouseDragging)
+            Vector3 targetPosIn2D = DragNDrop.target.transform.position;
+            targetPosIn2D.y = 0;
+            Vector3 platformPosIn2D = this.transform.position;
+            platformPosIn2D.y = 0;
+            var dist = Vector3.Distance(targetPosIn2D, platformPosIn2D);
+            if (dist <= 5 && !DragNDrop.isMouseDragging)
             {
                 if (first == null)
-                {
+                {//put in first point
                     first = DragNDrop.target;
                     first.transform.position = point1.position + offset;
                     first.GetComponent<Rigidbody>().isKinematic = true;
                     DragNDrop.target = null;
                 }
                 else if (second == null)
-                {
+                {//put in second point
                     second = DragNDrop.target;
                     second.transform.position = point2.position + offset;
-                    second.GetComponent<Rigidbody>().isKinematic = true;     
+                    second.GetComponent<Rigidbody>().isKinematic = true;
                 }
                 else
-                {
-                    if (first.GetComponent<MeshFilter>().name == second.GetComponent<MeshFilter>().name) 
+                {//Correct Match
+                    if (first.GetComponent<MeshFilter>().name == second.GetComponent<MeshFilter>().name)
                     {
-                        if(first.transform.rotation == Quaternion.Euler(Vector3.zero) && second.transform.rotation == Quaternion.Euler(Vector3.zero))
                         DragNDrop.target = null;
                         first.GetComponent<Collider>().enabled = false;
                         second.GetComponent<Collider>().enabled = false;
-                        first.transform.position = Vector3.MoveTowards(first.transform.position,second.transform.position,speed * Time.deltaTime);
-                        second.transform.position = Vector3.MoveTowards(second.transform.position,first.transform.position, speed * Time.deltaTime);
-                        if(first.transform.position == second.transform.position)
-                        {
-                            Destroy(first);
-                            Destroy(second);
-                            first = null;
-                            second = null;
-                            comboNum += 1;
-                            comboBarSlider.value = comboTime;
-                            ScoreScript.instance.addScore();
-                        }
-
+                        correct = true;
                     }
                     else
-                    {
+                    {//Incorrect Match
                         second.GetComponent<Rigidbody>().isKinematic = false;
-                        second.GetComponent<Rigidbody>().AddForce(200000f * transform.forward*Time.deltaTime);
-                        second = null;
-                        DragNDrop.target = null;          
+                        second.GetComponent<Rigidbody>().AddForce(100000f * transform.forward * Time.deltaTime);
+                        DragNDrop.target = null;
                     }
                 }
             }
         }
+        if (correct)
+        {
+            if (first.transform.position != second.transform.position)
+            {
+                Debug.Log("WTF?");
+                first.transform.position = Vector3.MoveTowards(first.transform.position, second.transform.position, speed * Time.deltaTime);
+                second.transform.position = Vector3.MoveTowards(second.transform.position, first.transform.position, speed * Time.deltaTime);
+            }
+            else
+            {
+                Destroy(first);
+                Destroy(second);
+                correct = false;
+                first = null;
+                second = null;
+                comboNum += 1;
+                comboBarSlider.value = comboTime;
+                ScoreScript.instance.addScore();
+            }
+        }
+        
 
         if (first != null)
         {

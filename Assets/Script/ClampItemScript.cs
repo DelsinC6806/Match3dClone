@@ -19,15 +19,8 @@ public class ClampItemScript : MonoBehaviour
     void LateUpdate()
     {
         Vector3 objectPosition = transform.position;
-        objectPosition.x = Mathf.Clamp(objectPosition.x, screenOrigin.x*0.7f, screenBounds.x*1.15f);
-        objectPosition.z = Mathf.Clamp(objectPosition.z, screenOrigin.z*0.9f, screenBounds.z*1.1f);
+        objectPosition.x = Mathf.Clamp(objectPosition.x, screenOrigin.x*0.75f, screenBounds.x*1.10f);
+        objectPosition.z = Mathf.Clamp(objectPosition.z, screenOrigin.z*0.65f, screenBounds.z*1.05f);
         transform.position = objectPosition;
-    }
-
-    private void Update()
-    {
-        if(transform.position.x <= screenOrigin.x || transform.position.x >= screenBounds.x)
-        {
-        }
     }
 }
