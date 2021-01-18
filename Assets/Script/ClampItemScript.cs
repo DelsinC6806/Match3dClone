@@ -4,13 +4,30 @@ using UnityEngine;
 
 public class ClampItemScript : MonoBehaviour
 {
-    Vector2 screenMin = new Vector2(28, 5);
-    Vector2 screenMax = new Vector2(72, 25);
-    void Update()
+    private Vector3 screenBounds;
+    private Vector3 screenOrigin;
+    private float objectWidth;
+    private float objectHeight;
+    Vector3 offset = Vector3.one;
+
+    void Start()
     {
-        Vector3 pos = transform.position;
-        pos.x = Mathf.Clamp(pos.x, screenMin.x, screenMax.x);
-        pos.z = Mathf.Clamp(pos.z, screenMin.y, screenMax.y);
-        transform.position = pos;
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane / 2));
+        screenOrigin = Camera.main.ScreenToWorldPoint(new Vector3(0,0, Camera.main.farClipPlane / 2));
+    }
+
+    void LateUpdate()
+    {
+        Vector3 objectPosition = transform.position;
+        objectPosition.x = Mathf.Clamp(objectPosition.x, screenOrigin.x*0.7f, screenBounds.x*1.15f);
+        objectPosition.z = Mathf.Clamp(objectPosition.z, screenOrigin.z*0.9f, screenBounds.z*1.1f);
+        transform.position = objectPosition;
+    }
+
+    private void Update()
+    {
+        if(transform.position.x <= screenOrigin.x || transform.position.x >= screenBounds.x)
+        {
+        }
     }
 }

@@ -35,9 +35,6 @@ public class DragNDrop : MonoBehaviour
         {
             Vector3 currentScreenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPosition.z);
             Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenSpace) + offset;
-            currentPosition.x = Mathf.Clamp(currentPosition.x,screenMin.x,screenMax.x);
-            currentPosition.y = Mathf.Clamp(currentPosition.y, 10, 10);
-            currentPosition.z = Mathf.Clamp(currentPosition.z,screenMin.y,screenMax.y);
             target.transform.position = currentPosition;
         }
     }

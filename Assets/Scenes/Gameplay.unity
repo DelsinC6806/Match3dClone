@@ -1060,7 +1060,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 813175822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.472, y: 1, z: 0}
+  m_LocalPosition: {x: 0.4, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1096944175}
@@ -1269,7 +1269,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 60
-  field of view: 33
+  field of view: 32.999996
   orthographic: 0
   orthographic size: 60
   m_Depth: -1
@@ -1448,6 +1448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   point1: {fileID: 1951850176}
   point2: {fileID: 813175823}
+  matchingPoint: {fileID: 0}
   comboBarSlider: {fileID: 1430493001}
   comboText: {fileID: 435176731}
 --- !u!1 &1167351947

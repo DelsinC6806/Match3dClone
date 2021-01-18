@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 23500337636562088}
   - component: {fileID: -596737116871134213}
   - component: {fileID: -4707599163833923771}
+  - component: {fileID: -2922956422127791752}
   m_Layer: 0
   m_Name: ArmyTruck
   m_TagString: draggable
@@ -271,6 +272,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.062163543, y: 0.0958308, z: 0.1416139}
   m_Center: {x: 0, y: 0.05188366, z: 0.00054049864}
+--- !u!114 &-2922956422127791752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456442292302018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7102043465470648836cfce813f2460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1700945775207778
 GameObject:
   m_ObjectHideFlags: 0
