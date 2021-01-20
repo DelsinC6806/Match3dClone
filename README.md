@@ -7,4 +7,6 @@
 <br>14/1/2021 Complete combo bar UI and script, refine canvas</br>
 <br>15/1/2021 add models/prefab</br>
 <br>18/1/2021 fix hard code boundaries,increase anaglar drag of ball GameObject</br>
-<br>18/1/2021 </br>
+<br>19/1/2021 rebuild drag& drop,added matching animation with script</br>
+<br>20/1/2021 Implementing throw GameObject</br>
+<br>21/1/2021 Complete of Throw GameObject</br> 
