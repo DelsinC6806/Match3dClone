@@ -85,7 +85,6 @@ public class MatchingScript : MonoBehaviour
         {
             if (first.transform.position != second.transform.position)
             {
-                Debug.Log("WTF?");
                 first.transform.position = Vector3.MoveTowards(first.transform.position, second.transform.position, speed * Time.deltaTime);
                 second.transform.position = Vector3.MoveTowards(second.transform.position, first.transform.position, speed * Time.deltaTime);
             }
