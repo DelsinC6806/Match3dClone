@@ -29,7 +29,8 @@ public class TimerScript : MonoBehaviour
             second = 59;
         }else if (second <= 0 && minute <= 0)
         {
-            text.text = "Game Over";
+            text.text = "GAMEOVER";
+            text.color = Color.red;
             GameOver.SetActive(true);
             Time.timeScale = 0;
         }

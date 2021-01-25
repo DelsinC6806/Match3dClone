@@ -38,6 +38,7 @@ public class DragNDrop : MonoBehaviour
             isMouseDragging = false;
             if (target != null)
             {
+                target.GetComponent<Rigidbody>().useGravity = true;
                 Vector3 currentSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y,screenPosition.z-10);
                 Vector3 currentPos = Camera.main.ScreenToWorldPoint(currentSpace);
                 var dir = currentPos - target.transform.position;
@@ -52,7 +53,7 @@ public class DragNDrop : MonoBehaviour
             target.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             Vector3 currentScreenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPosition.z-10);
             Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenSpace);
-            
+            target.GetComponent<Rigidbody>().useGravity = false;
             target.transform.position = Vector3.MoveTowards(target.transform.position, currentPosition, speed * Time.deltaTime);
         }
 
