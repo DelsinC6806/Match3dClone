@@ -10,3 +10,4 @@
 <br>19/1/2021 rebuild drag& drop,added matching animation with script</br>
 <br>20/1/2021 Implementing throw GameObject</br>
 <br>21/1/2021 Complete of Throw GameObject</br> 
+<br>25/1/2021 fix mouse drag and throw object</br>
