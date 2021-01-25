@@ -6,10 +6,12 @@ public class TimerScript : MonoBehaviour
     public Text timerText;
     float second;
     int minute;
+    public GameObject GameOver;
+    public Text text;
    
     void Start()
     {
-        minute = 10;
+        minute = 1;
     }
 
     void Update()
@@ -27,7 +29,9 @@ public class TimerScript : MonoBehaviour
             second = 59;
         }else if (second <= 0 && minute <= 0)
         {
-            //GameOver
+            text.text = "Game Over";
+            GameOver.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 
