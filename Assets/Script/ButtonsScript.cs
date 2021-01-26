@@ -22,6 +22,5 @@ public class ButtonsScript : MonoBehaviour
     public void onRetryButton()
     {
         Application.LoadLevel(Application.loadedLevel);
-        Time.timeScale = 1.0f;
     }
 }

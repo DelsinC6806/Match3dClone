@@ -12,6 +12,7 @@ public class TimerScript : MonoBehaviour
     void Start()
     {
         minute = 1;
+        Time.timeScale = 1;
     }
 
     void Update()
@@ -22,7 +23,7 @@ public class TimerScript : MonoBehaviour
 
     void countDown()
     {
-        second -= Time.deltaTime;
+        
         if(second <= 0 && minute > 0)
         {
             minute -= 1;
@@ -33,6 +34,10 @@ public class TimerScript : MonoBehaviour
             text.color = Color.red;
             GameOver.SetActive(true);
             Time.timeScale = 0;
+        }
+        else
+        {
+            second -= Time.deltaTime;
         }
     }
 

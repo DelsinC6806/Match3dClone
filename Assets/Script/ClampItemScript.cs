@@ -21,6 +21,7 @@ public class ClampItemScript : MonoBehaviour
         Vector3 objectPosition = transform.position;
         objectPosition.x = Mathf.Clamp(objectPosition.x, screenOrigin.x*0.75f, screenBounds.x*1.10f);
         objectPosition.z = Mathf.Clamp(objectPosition.z, screenOrigin.z*0.65f, screenBounds.z*1.05f);
+        objectPosition.y = Mathf.Clamp(objectPosition.y,-5, 15);
         transform.position = objectPosition;
     }
 }
