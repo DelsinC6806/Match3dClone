@@ -5,7 +5,7 @@ public class TimerScript : MonoBehaviour
 {
     public Text timerText;
     float second;
-    int minute;
+    public static int minute;
     public GameObject GameOver;
     public Text text;
    

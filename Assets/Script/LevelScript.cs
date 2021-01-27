@@ -21,7 +21,7 @@ public class LevelScript : MonoBehaviour
     {
         if (!levelup)
         {
-            level += 1;
+            level += 1; 
             levelup = true;
         }
     }

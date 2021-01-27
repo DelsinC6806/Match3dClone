@@ -29,7 +29,7 @@ public class MatchingScript : MonoBehaviour
         comboText.text = "x" + comboNum;
         if (comboBarSlider.value > 0)
         {
-            comboBarSlider.value -= Time.deltaTime;
+            comboBarSlider.value -= Time.deltaTime * comboNum /2;
         }
         else
         {
