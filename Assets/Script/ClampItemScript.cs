@@ -23,5 +23,12 @@ public class ClampItemScript : MonoBehaviour
         objectPosition.z = Mathf.Clamp(objectPosition.z, screenOrigin.z*0.65f, screenBounds.z*1.05f);
         objectPosition.y = Mathf.Clamp(objectPosition.y,-5, 15);
         transform.position = objectPosition;
+
+        if(transform.position.y >= 15)
+        {
+            var newVelocity = GetComponent<Rigidbody>().velocity;
+            newVelocity.y = 0;
+            GetComponent<Rigidbody>().velocity = newVelocity;
+        }
     }
 }
